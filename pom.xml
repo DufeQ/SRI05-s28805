@@ -95,7 +95,7 @@
                 </executions>
                 <configuration>
                     <sources>
-                        <source>${project.basedir}/src/main/resources/employees.xsd</source>
+                        <source>${project.basedir}/src/main/resources/students.xsd</source>
                     </sources>
                 </configuration>
             </plugin>
