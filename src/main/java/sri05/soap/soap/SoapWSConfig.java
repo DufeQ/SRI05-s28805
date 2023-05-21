@@ -16,7 +16,7 @@ import org.springframework.xml.xsd.XsdSchema;
 @EnableWs
 @Configuration
 public class SoapWSConfig extends WsConfigurerAdapter {
-    public static final String STUDENT_NAMESPACE = "http://soap.sri05//students";
+    public static final String STUDENT_NAMESPACE = "http://soap.sri05/students";
 
     @Bean
     public ServletRegistrationBean<MessageDispatcherServlet> messageDispatcherServletServlet(ApplicationContext context){

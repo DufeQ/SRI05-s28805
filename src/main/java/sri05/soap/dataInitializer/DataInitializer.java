@@ -9,6 +9,8 @@ import org.springframework.stereotype.Component;
 import sri05.soap.model.Student;
 import sri05.soap.repo.StudentRepository;
 
+import java.util.Arrays;
+
 @Component
 @RequiredArgsConstructor
 public class DataInitializer implements ApplicationListener<ContextRefreshedEvent> {
@@ -38,6 +40,9 @@ public class DataInitializer implements ApplicationListener<ContextRefreshedEven
                 .nazwisko("Tracz")
                 .nrIndeksu("s666")
                 .build();
+
+        studentRepository.saveAll(Arrays.asList(s1, s2, s3));
+        LOG.info("Data initialized");
 
     }
 }

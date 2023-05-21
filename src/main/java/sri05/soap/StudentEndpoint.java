@@ -20,7 +20,7 @@ public class StudentEndpoint {
 
     private final StudentRepository studentRepository;
 
-    @PayloadRoot(namespace = SoapWSConfig.STUDENT_NAMESPACE, localPart = "getStudentRequest")
+    @PayloadRoot(namespace = SoapWSConfig.STUDENT_NAMESPACE, localPart = "getStudentsRequest")
     @ResponsePayload
     public GetStudentsResponse getStudents(@RequestPayload GetStudentsRequest req){
         List<Student> allStud = studentRepository.findAll();
@@ -32,10 +32,10 @@ public class StudentEndpoint {
 
     @PayloadRoot(namespace = SoapWSConfig.STUDENT_NAMESPACE, localPart = "getStudentByIdRequest")
     @ResponsePayload
-    public GetStudentsByIdResponse getStudentsById(@RequestPayload GetStudentsByIdRequest req){
-        long id = req.getStudentsId().longValue();
+    public GetStudentByIdResponse getStudentById(@RequestPayload GetStudentByIdRequest req){
+        long id = req.getStudentId().longValue();
         Optional<Student> byId = studentRepository.findById(id);
-        GetStudentsByIdResponse res = new GetStudentsByIdResponse();
+        GetStudentByIdResponse res = new GetStudentByIdResponse();
         res.setStudents(convertToDto(byId.orElse(null)));
         return res;
     }

@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
-            xmlns:tns="http://soap.sri05//students"
-            targetNamespace="http://soap.sri05//students">
+            xmlns:tns="http://soap.sri05/students"
+            targetNamespace="http://soap.sri05/students">
 
     <xs:complexType name="studentDto">
         <xs:sequence>
@@ -27,15 +27,15 @@
     </xs:element>
 
 
-    <xs:element name="getStudentsByIdRequest">
+    <xs:element name="getStudentByIdRequest">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="studentsId" type="xs:decimal"/>
+                <xs:element name="studentId" type="xs:decimal"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
 
-    <xs:element name="getStudentsByIdResponse">
+    <xs:element name="getStudentByIdResponse">
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="students" type="tns:studentDto" minOccurs="0" maxOccurs="1"/>
