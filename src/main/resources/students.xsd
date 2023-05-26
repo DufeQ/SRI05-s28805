@@ -75,4 +75,21 @@
             </xs:sequence>
         </xs:complexType>
     </xs:element>
+
+    <xs:element name="modifyStudentRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="students" type="tns:studentDto"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+
+    <xs:element name="modifyStudentResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="studentId" type="xs:decimal"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
 </xs:schema>

@@ -61,6 +61,23 @@ public class StudentEndpoint {
         return res;
     }
 
+    @PayloadRoot(namespace = SoapWSConfig.STUDENT_NAMESPACE, localPart = "modifyStudentRequest")
+    @ResponsePayload
+    public ModifyStudentResponse modifyStudent(@RequestPayload ModifyStudentRequest req){
+//        long id = req.getStudentId().longValue();
+        long id = req.getStudents().getId().longValue();
+        ModifyStudentResponse res = new ModifyStudentResponse();
+        Optional<Student> byId = studentRepository.findById(id);
+        if (byId == null) {
+            return res;
+        }
+        Student student = byId.get();
+        student = convertToEntity(req.getStudents());
+        studentRepository.save(student);
+        res.setStudentId(new BigDecimal(id));
+        return res;
+    }
+
 
 
     private StudentDto convertToDto(Student s){
