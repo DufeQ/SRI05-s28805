@@ -50,6 +50,19 @@ public class StudentEndpoint {
         return res;
     }
 
+    @PayloadRoot(namespace = SoapWSConfig.STUDENT_NAMESPACE, localPart = "deleteStudentRequest")
+    @ResponsePayload
+    public DeleteStudentResponse deleteStudent(@RequestPayload DeleteStudentRequest req){
+        long id = req.getStudentId().longValue();
+        Optional<Student> byId = studentRepository.findById(id);
+        studentRepository.deleteById(byId.get().getId());
+        DeleteStudentResponse res = new DeleteStudentResponse();
+        res.setStudentId(new BigDecimal(id));
+        return res;
+    }
+
+
+
     private StudentDto convertToDto(Student s){
         if (s == null)
             return null;
